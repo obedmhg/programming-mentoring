@@ -5,11 +5,10 @@ import java.awt.*;
 
 class Canvas extends JPanel {
     private Robot robot;
-    private ImageIcon robotImage;
 
     public Canvas(Robot robot) {
         this.robot = robot;
-        this.robotImage = new ImageIcon(getClass().getResource("/robot.gif")); // Ensure this file exists in the project folder
+        robot.setRobotImage(new ImageIcon(getClass().getResource("/robot.gif")));// Ensure this file exists in the project folder
     }
 
     @Override
@@ -17,8 +16,8 @@ class Canvas extends JPanel {
         super.paintComponent(g);
 
         // Draw the robot GIF
-        if (robotImage.getImage() != null) {
-            g.drawImage(robotImage.getImage(), robot.getX(), robot.getY(), 100, 100, this);
+        if (robot.getRobotImage().getImage() != null) {
+            g.drawImage(robot.getRobotImage().getImage(), robot.getX(), robot.getY(), 100, 100, this);
         }
     }
 }

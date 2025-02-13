@@ -1,9 +1,12 @@
 package org.example;
 
+import javax.swing.*;
+
 class Robot {
     private int x;
     private int y;
     private final int stepSize = 20; // Movement step in pixels
+    private ImageIcon robotImage;
 
     public Robot() {
         this.x = 100; // Initial position
@@ -18,6 +21,14 @@ class Robot {
             case 'd': x += stepSize; break; // Right
             default: return;
         }
+    }
+
+    public ImageIcon getRobotImage() {
+        return robotImage;
+    }
+
+    public void setRobotImage(ImageIcon robotImage) {
+        this.robotImage = robotImage;
     }
 
     public int getX() { return x; }
