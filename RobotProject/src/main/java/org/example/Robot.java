@@ -9,8 +9,8 @@ class Robot {
     private ImageIcon robotImage;
 
     public Robot() {
-        this.x = 100; // Initial position
-        this.y = 100;
+        this.x = 0; // Initial position
+        this.y = 0;
     }
 
     public void move(char direction) {
