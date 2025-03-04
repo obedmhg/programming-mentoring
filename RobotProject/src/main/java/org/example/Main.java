@@ -7,7 +7,10 @@ import java.awt.event.KeyEvent;
 public class Main {
     public static void main(String[] args) {
         Robot robot = new Robot();
-        Canvas canvas = new Canvas(robot);
+        Robot robot2 = new Robot();
+        robot2.setX(300);
+        robot2.setY(300);
+        Canvas canvas = new Canvas(robot, robot2);
 
         JFrame frame = new JFrame("Robot Movement");
         frame.setSize(500, 500);
