@@ -27,7 +27,7 @@ class Canvas extends JPanel {
 
         // Draw the robot GIF on top
         if (robot.getRobotImage().getImage() != null) {
-            g.drawImage(robot.getRobotImage().getImage(), robot.getX(), robot.getY(), 100, 100, this);
+            g.drawImage(robot.getRobotImage().getImage(), robot.getX(), robot.getY(), robot.getSize(), robot.getSize(), this);
         }
         if (robot2.getRobotImage().getImage() != null) {
             g.drawImage(robot2.getRobotImage().getImage(), robot2.getX(), robot2.getY(), 100, 100, this);

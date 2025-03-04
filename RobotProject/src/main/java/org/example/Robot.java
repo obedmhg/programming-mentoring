@@ -7,10 +7,12 @@ class Robot {
     private int y;
     private final int stepSize = 20; // Movement step in pixels
     private ImageIcon robotImage;
+    private int size;
 
     public Robot() {
         this.x = 0; // Initial position
         this.y = 0;
+        this.size = 100;
     }
 
     public void move(char direction) {
@@ -40,5 +42,13 @@ class Robot {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 }

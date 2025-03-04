@@ -24,8 +24,13 @@ public class Main {
                 char key = Character.toLowerCase(e.getKeyChar());
                 if (key == 'w' || key == 'a' || key == 's' || key == 'd') {
                     robot.move(key);
-                    canvas.repaint();
+                } else if (key == 'b') {
+                    robot.setSize(robot.getSize() + 20);
+                } else if (key == 'v') {
+                    robot.setSize(robot.getSize() - 20);
                 }
+                canvas.repaint();
+
             }
         });
     }
