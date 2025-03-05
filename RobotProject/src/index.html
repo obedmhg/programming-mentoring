@@ -58,6 +58,7 @@
                 this.updatePosition();
             }
             move(direction) {
+                alert('direction'+direction);
                 const moves = { 'w': [0, -this.stepSize], 's': [0, this.stepSize], 'a': [-this.stepSize, 0], 'd': [this.stepSize, 0], 'i': [0, -this.stepSize], 'k': [0, this.stepZise], 'j': [-this.stepSize, 0], 'l': [this.stepZise, 0]};
                 if (direction in moves) {
                     this.x += moves[direction][0];
@@ -103,7 +104,6 @@
                 robot.setSpeed(-20);
             }
             if (['i', 'j', 'k', 'l'].includes(key)) {
-                alert('key:'+key);
                 robot2.move(key);
             }
         }); 
