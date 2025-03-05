@@ -102,20 +102,21 @@
             } else if (key === 'y') {
                 robot.setSpeed(-20);
             }
+        });
 
-            // Focus input field when tapping the screen (for mobile users)
-            document.addEventListener("click", () => {
-                inputField.focus();
-            });
-
-            window.addEventListener("resize", () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            });
-
-            // Auto-focus on page load
+        // Focus input field when tapping the screen (for mobile users)
+        document.addEventListener("click", () => {
             inputField.focus();
-        }
+        });
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Auto-focus on page load
+        inputField.focus();
+
     </script>
 </body>
 
