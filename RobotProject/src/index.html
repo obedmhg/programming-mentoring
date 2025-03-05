@@ -20,12 +20,21 @@
             width: 100px;
             height: 100px;
         }
+        #keyboardInput {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
 <canvas id="gameCanvas"></canvas>
 <img id="robot1" class="robot" src="https://raw.githubusercontent.com/obedmhg/programming-mentoring/refs/heads/main/RobotProject/src/main/resources/robot.gif" style="left: 0px; top: 0px;">
 <img id="robot2" class="robot" src="https://raw.githubusercontent.com/obedmhg/programming-mentoring/refs/heads/main/RobotProject/src/main/resources/robot.gif" style="left: 300px; top: 300px;">
+
+<!-- Invisible input field -->
+<input type="text" id="keyboardInput" autocomplete="off">
+
 <script>
         class Robot {
             constructor(elementId, x, y) {
@@ -62,7 +71,9 @@
         const robot = new Robot("robot1", 0, 0);
         const robot2 = new Robot("robot2", 300, 300);
 
-        document.addEventListener('keydown', (e) => {
+        const inputField = document.getElementById("keyboardInput");
+
+        document.addEventListener("keydown", (e) => {
             const key = e.key.toLowerCase();
             if (['w', 'a', 's', 'd'].includes(key)) {
                 robot.move(key);
@@ -73,10 +84,18 @@
             }
         });
 
+        // Focus input field when tapping the screen (for mobile users)
+        document.addEventListener("click", () => {
+            inputField.focus();
+        });
+
         window.addEventListener("resize", () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         });
+
+        // Auto-focus on page load
+        inputField.focus();
     </script>
 </body>
 </html>
