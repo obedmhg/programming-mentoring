@@ -43,6 +43,9 @@
     <img id="robot2" class="robot"
         src="https://raw.githubusercontent.com/Speedcuber0107/programming-mentoring/refs/heads/main/RobotProject/src/main/resources/IMG_0809.gif"
         style="left: 0px; top: 540px;">
+        <img id="robot3" class="robot"
+        src="https://raw.githubusercontent.com/Speedcuber0107/programming-mentoring/refs/heads/main/RobotProject/src/main/resources/IMG_0810.gif"
+        style="left: 1000px; top: 0px;">
 
     <!-- Invisible input field -->
     <input type="text" id="keyboardInput" autocomplete="off">
@@ -58,7 +61,7 @@
                 this.updatePosition();
             }
             move(direction) {
-                const moves = { 'w': [0, -this.stepSize], 's': [0, this.stepSize], 'a': [-this.stepSize, 0], 'd': [this.stepSize, 0], 'i': [0, -this.stepSize], 'k': [0, this.stepSize], 'j': [-this.stepSize, 0], 'l': [this.stepSize, 0]};
+                const moves = { 'w': [0, -this.stepSize], 's': [0, this.stepSize], 'a': [-this.stepSize, 0], 'd': [this.stepSize, 0], 'i': [0, -this.stepSize], 'k': [0, this.stepSize], 'j': [-this.stepSize, 0], 'l': [this.stepSize, 0], 'arrowup': [0, -this.stepSize], 'arrowdown': [0, this.stepSize], 'arrowleft': [-this.stepSize, 0], 'arrowright': [this.stepSize, 0]};};
                 if (direction in moves) {
                     this.x += moves[direction][0];
                     //alert(this.x+','+this.y);
@@ -113,6 +116,16 @@
                 robot2.setSpeed(20)
             } else if (key === 'p') {
                 robot2.setSpeed(-20)
+            } else if (['arrowup', 'arrowleft', 'arrowdown', 'arrowright']) {
+                robot3.move(key);
+            } else if (key === 'm') {
+                robot3.resize(20);
+            } else if (key === 'n') {
+                robot3.resize(-20);
+            } else if (key === 'z') {
+                robot3.setSpeed(20);
+            } else if (key === 'x') {
+                robot3.setSpeed(-20);
             }
         }); 
 
