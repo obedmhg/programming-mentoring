@@ -58,7 +58,7 @@
                 this.updatePosition();
             }
             move(direction) {
-                const moves = { 'w': [0, -this.stepSize], 's': [0, this.stepSize], 'a': [-this.stepSize, 0], 'd': [this.stepSize, 0], 'i': [0, -this.stepSize], 'k': [0, this.stepSize], 'j': [-this.stepSize, 0], 'l': [this.stepSize, 0]};
+                const moves = { 'arrowup': [0, -this.stepSize], 'arrowdown': [0, this.stepSize], 'arrowleft': [-this.stepSize, 0], 'arrowright': [this.stepSize, 0], 'i': [0, -this.stepSize], 'k': [0, this.stepSize], 'j': [-this.stepSize, 0], 'l': [this.stepSize, 0]};
                 if (direction in moves) {
                     this.x += moves[direction][0];
                     //alert(this.x+','+this.y);
