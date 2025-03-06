@@ -90,6 +90,7 @@
         const inputField = document.getElementById("keyboardInput");
 
         document.addEventListener("keydown", (e) => {
+            alert(e.key)
             const key = e.key.toLowerCase();
             if (['w', 'a', 's', 'd'].includes(key)) {
                 robot.move(key);
