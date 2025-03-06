@@ -102,9 +102,16 @@
                 robot.setSpeed(20);
             } else if (key === 'y') {
                 robot.setSpeed(-20);
-            }
-            if (['i', 'j', 'k', 'l'].includes(key)) {
+            } else if (['i', 'j', 'k', 'l'].includes(key)) {
                 robot2.move(key);
+            } else if (key === 'b') {
+                robot2.resize(20);
+            } else if (key === 'v') {
+                robot2.resize(-20)
+            } else if (key === 'o') {
+                robot2.setSpeed(20)
+            } else if (key === 'p') {
+                robot2.setSpeed(-20)
             }
         }); 
 
