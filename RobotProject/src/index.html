@@ -92,7 +92,7 @@
         document.addEventListener("keydown", (e) => {
             alert(e.key.toLowerCase())
             const key = e.key.toLowerCase();
-            if (['w', 'a', 's', 'd'].includes(key)) {
+            if (['arrowup', 'arrowleft', 'arrowdown', 'arrowright'].includes(key)) {
                 robot.move(key);
             } else if (key === 'g') {
                 robot.resize(20);
