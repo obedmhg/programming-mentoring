@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robot Movement</title>
     <style>
-        body { margin: 0; overflow: hidden; }
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
         canvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: url('https://github.com/obedmhg/programming-mentoring/blob/main/RobotProject/src/main/resources/arena.png?raw=true') no-repeat center center;
+            background: url('https://github.com/Speedcuber0107/programming-mentoring/blob/main/RobotProject/src/main/resources/IMG_0808.jpeg?raw=true') no-repeat center center;
             background-size: cover;
         }
+
         .robot {
             position: absolute;
             width: 100px;
             height: 100px;
         }
+
         #keyboardInput {
             position: absolute;
             opacity: 0;
             pointer-events: none;
         }
-
     </style>
 </head>
+
 <body>
-<canvas id="gameCanvas"></canvas>
-<img id="robot1" class="robot"
-     src="https://raw.githubusercontent.com/obedmhg/programming-mentoring/refs/heads/main/RobotProject/src/main/resources/robot.gif"
-     style="left: 0px; top: 0px;">
-<img id="robot2" class="robot"
-     src="https://raw.githubusercontent.com/obedmhg/programming-mentoring/refs/heads/main/RobotProject/src/main/resources/robot.gif"
-     style="left: 300px; top: 300px;">
+    <canvas id="gameCanvas"></canvas>
+    <img id="robot1" class="robot"
+        src="https://raw.githubusercontent.com/obedmhg/programming-mentoring/refs/heads/main/RobotProject/src/main/resources/robot.gif"
+        style="left: 0px; top: 0px;">
+    <img id="robot2" class="robot"
+        src="https://raw.githubusercontent.com/Speedcuber0107/programming-mentoring/refs/heads/main/RobotProject/src/main/resources/IMG_0809.gif"
+        style="left: 0px; top: 540px;">
+        <img id="robot3" class="robot"
+        src="https://raw.githubusercontent.com/Speedcuber0107/programming-mentoring/refs/heads/main/RobotProject/src/main/resources/IMG_0810.gif"
+        style="left: 1000px; top: 0px;">
 
-<!-- Invisible input field -->
-<input type="text" id="keyboardInput" autocomplete="off">
+    <!-- Invisible input field -->
+    <input type="text" id="keyboardInput" autocomplete="off">
 
-<script>
+    <script>
         class Robot {
             constructor(elementId, x, y) {
                 this.element = document.getElementById(elementId);
@@ -51,9 +61,10 @@
                 this.updatePosition();
             }
             move(direction) {
-                const moves = { 'w': [0, -this.stepSize], 's': [0, this.stepSize], 'a': [-this.stepSize, 0], 'd': [this.stepSize, 0] };
+                const moves = { 'w': [0, -this.stepSize], 's': [0, this.stepSize], 'a': [-this.stepSize, 0], 'd': [this.stepSize, 0], 'i': [0, -this.stepSize], 'k': [0, this.stepSize], 'j': [-this.stepSize, 0], 'l': [this.stepSize, 0], 'arrowup': [0, -this.stepSize], 'arrowdown': [0, this.stepSize], 'arrowleft': [-this.stepSize, 0], 'arrowright': [this.stepSize, 0]};
                 if (direction in moves) {
                     this.x += moves[direction][0];
+                    //alert(this.x+','+this.y);
                     this.y += moves[direction][1];
                     this.updatePosition();
                 }
@@ -67,6 +78,9 @@
                 this.element.style.left = `${this.x}px`;
                 this.element.style.top = `${this.y}px`;
             }
+            setSpeed(amount) {
+                this.stepSize = Math.max(20, this.stepSize + amount);
+            }
         }
 
         const canvas = document.getElementById("gameCanvas");
@@ -74,7 +88,8 @@
         canvas.height = window.innerHeight;
 
         const robot = new Robot("robot1", 0, 0);
-        const robot2 = new Robot("robot2", 300, 300);
+        const robot2 = new Robot("robot2", 0, 540);
+        const robot3 = new Robot("robot3", 1000, 0);
 
         const inputField = document.getElementById("keyboardInput");
 
@@ -82,12 +97,37 @@
             const key = e.key.toLowerCase();
             if (['w', 'a', 's', 'd'].includes(key)) {
                 robot.move(key);
-            } else if (key === 'b') {
+            } else if (key === 'g') {
                 robot.resize(20);
-            } else if (key === 'v') {
+            } else if (key === 'c') {
                 robot.resize(-20);
             }
-        });
+            else if (key === 't') {
+                robot.setSpeed(20);
+            } else if (key === 'y') {
+                robot.setSpeed(-20);
+            } else if (['i', 'j', 'k', 'l'].includes(key)) {
+                robot2.move(key);
+            } else if (key === 'b') {
+                robot2.resize(20);
+            } else if (key === 'v') {
+                robot2.resize(-20)
+            } else if (key === 'o') {
+                robot2.setSpeed(20)
+            } else if (key === 'p') {
+                robot2.setSpeed(-20)
+            } else if (['arrowup', 'arrowleft', 'arrowdown', 'arrowright'].includes(key)) {
+                robot3.move(key);
+            } else if (key === 'm') {
+                robot3.resize(20);
+            } else if (key === 'n') {
+                robot3.resize(-20);
+            } else if (key === 'z') {
+                robot3.setSpeed(20);
+            } else if (key === 'x') {
+                robot3.setSpeed(-20);
+            }
+        }); 
 
         // Focus input field when tapping the screen (for mobile users)
         document.addEventListener("click", () => {
@@ -102,6 +142,7 @@
         // Auto-focus on page load
         inputField.focus();
 
-</script>
+    </script>
 </body>
+
 </html>
