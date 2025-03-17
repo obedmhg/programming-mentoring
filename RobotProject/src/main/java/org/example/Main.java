@@ -5,7 +5,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Robot robot = new Robot();
         Robot robot2 = new Robot();
         robot2.setX(300);
@@ -33,5 +33,21 @@ public class Main {
 
             }
         });
+        for(int i=0; i<10; i++) {
+            robot.move('d');
+            Thread.sleep(500);
+        }
+        for(int i=0; i<10; i++) {
+            robot.move('s');
+            Thread.sleep(500);
+        }
+        for(int i=0; i<10; i++) {
+            robot.move('a');
+            Thread.sleep(500);
+        }
+        for(int i=0; i<10; i++) {
+            robot.move('w');
+            Thread.sleep(500);
+        }
     }
 }

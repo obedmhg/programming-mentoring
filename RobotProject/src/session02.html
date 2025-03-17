@@ -8,13 +8,22 @@
 <body>
 <script>
         const answer = Math.floor(Math.random() * 10) + 1;
-        const guess = prompt("Guess a number between 1 and 10");
-
-        if (parseInt(guess) === answer) {
-            alert("You did it");
-        } else {
-            alert("Fail");
+        const atinaste = false;
+        while(atinaste==false) {
+            const guess = prompt("Guess a number between 1 and 10");
+            if (answer==guess) {
+                alert("Win");
+                atinaste = true;
+            } else {
+               if(answer>guess) {
+                alert("up")
+               } else
+               {
+                alert("down")
+               }
+            }
         }
+
     </script>
 </body>
 </html>
